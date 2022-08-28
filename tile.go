@@ -1,6 +1,3 @@
-//go:build 7colors
-// +build 7colors
-
 package main
 
 import (
