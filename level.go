@@ -1,22 +1,9 @@
 package main
 
 import (
-	"image/color"
+	"fmt"
 	"math/rand"
 	"time"
-)
-
-var (
-	colors = []color.RGBA{
-		{0xff, 0xff, 0xff, 0xff},
-		{0xff, 0xff, 0x0, 0xff},
-		{0xff, 0x0, 0xff, 0xff},
-		{0xff, 0x0, 0x0, 0xff},
-		{0x0, 0xff, 0xff, 0xff},
-		{0x0, 0xff, 0x0, 0xff},
-		{0x0, 0x0, 0xff, 0xff},
-		{0x0, 0x0, 0x0, 0xff},
-	}
 )
 
 // Level represents a Game level.
@@ -47,6 +34,12 @@ func NewLevel() (*Level, error) {
 		w:        108,
 		h:        108,
 		tileSize: 64,
+	}
+
+	// Load embedded SpriteSheet.
+	ss, err := LoadSpriteSheet(l.tileSize)
+	if err != nil {
+		return nil, fmt.Errorf("failed to load embedded spritesheet: %s", err)
 	}
 
 	// Generate a unique permutation each time.

@@ -1,22 +1,22 @@
 package main
 
 import (
-	"image/color"
-
 	"github.com/hajimehoshi/ebiten/v2"
 )
 
 // Tile represents a space with an x,y coordinate within a Level.
 type Tile struct {
-	sprite *ebiten.Image
+	sprites []*ebiten.Image
 }
 
 // AddSprite adds a sprite to the Tile.
-func (t *Tile) Paint(c color.RGBA) {
-	t.sprite.Fill(c)
+func (t *Tile) AddSprite(s *ebiten.Image) {
+	t.sprites = append(t.sprites, s)
 }
 
 // Draw draws the Tile on the screen using the provided options.
 func (t *Tile) Draw(screen *ebiten.Image, options *ebiten.DrawImageOptions) {
-	screen.DrawImage(t.sprite, options)
+	for _, s := range t.sprites {
+		screen.DrawImage(s, options)
+	}
 }
