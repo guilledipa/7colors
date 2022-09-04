@@ -11,7 +11,7 @@ require (
 
 require (
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20220806181222-55e207c401ad // indirect
-	github.com/guilledipa/resources v0.0.0-20220904103229-c38496e4b7c2
+	github.com/guilledipa/resources v0.0.0-20220904110342-3f8362482b9d
 	github.com/jezek/xgb v1.0.1 // indirect
 	golang.org/x/exp/shiny v0.0.0-20220827204233-334a2380cb91 // indirect
 	golang.org/x/image v0.0.0-20220902085622-e7cb96979f69 // indirect

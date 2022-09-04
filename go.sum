@@ -6,6 +6,8 @@ github.com/go-gl/glfw/v3.3/glfw v0.0.0-20220806181222-55e207c401ad h1:kX51IjbsJP
 github.com/go-gl/glfw/v3.3/glfw v0.0.0-20220806181222-55e207c401ad/go.mod h1:tQ2UAYgL5IevRw8kRxooKSPJfGvJ9fJQFa0TUsXzTg8=
 github.com/guilledipa/resources v0.0.0-20220904103229-c38496e4b7c2 h1:cabUBTf+S6q3pynP7wSl1h8gJo+5w4nR0+iEhPjQ7Ww=
 github.com/guilledipa/resources v0.0.0-20220904103229-c38496e4b7c2/go.mod h1:ZJl7mtQuS28jzBKXiZLb3X7G5xTpv1zqukUz9IfGdKM=
+github.com/guilledipa/resources v0.0.0-20220904110342-3f8362482b9d h1:hCixrRC8Kyf2Wc7AC4SKEv07tV+zeCtWhNo1Sajm5Ok=
+github.com/guilledipa/resources v0.0.0-20220904110342-3f8362482b9d/go.mod h1:ZJl7mtQuS28jzBKXiZLb3X7G5xTpv1zqukUz9IfGdKM=
 github.com/hajimehoshi/bitmapfont/v2 v2.2.1/go.mod h1:wjrYAy8vKgj9JsFgnYAOK346/uvE22TlmqouzdnYIs0=
 github.com/hajimehoshi/ebiten/v2 v2.4.1 h1:K5lpuDGbmvMi9VtqhSq08JB7SBzgQqApNrzvd0HK/NU=
 github.com/hajimehoshi/ebiten/v2 v2.4.1/go.mod h1:z9L4JZ3XHQqvCuVuAQ1qTByIV2YHGS1w6keUSVC9NDA=
