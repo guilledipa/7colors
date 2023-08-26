@@ -3,7 +3,7 @@ module github.com/guilledipa/7colors
 go 1.21.0
 
 require (
-	github.com/guilledipa/7colors/sevencolors v0.0.0-20230826062344-6bef5ac91607
+	github.com/guilledipa/7colors/sevencolors v0.0.0-00010101000000-000000000000
 	github.com/hajimehoshi/ebiten/v2 v2.5.7
 )
 
@@ -17,3 +17,5 @@ require (
 	golang.org/x/sync v0.1.0 // indirect
 	golang.org/x/sys v0.7.0 // indirect
 )
+
+replace github.com/guilledipa/7colors/sevencolors => .\sevencolors

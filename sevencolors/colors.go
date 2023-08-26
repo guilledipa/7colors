@@ -5,6 +5,11 @@ import (
 	"math/rand"
 )
 
+var (
+	backgroundColor = color.RGBA{0xfa, 0xf8, 0xef, 0xff}
+	frameColor      = color.RGBA{0xbb, 0xad, 0xa0, 0xff}
+)
+
 func tileBackgroundColor(value int) color.Color {
 	switch value {
 	case 0:
@@ -27,8 +32,7 @@ func tileBackgroundColor(value int) color.Color {
 	panic("not reach")
 }
 
-// GenerateRandomColor returns one of the 7 colors randomnly
-func GenerateRandomColor(rng *rand.Rand) color.Color {
-	v := rng.Intn(7)
-	return tileBackgroundColor(v)
+// generateRandomColor returns one of the 7 colors randomnly
+func generateRandomColor(rng *rand.Rand) color.Color {
+	return tileBackgroundColor(rng.Intn(7))
 }
