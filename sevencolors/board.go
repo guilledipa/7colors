@@ -3,7 +3,6 @@ package sevencolors
 import (
 	"image/color"
 	"math/rand"
-	"time"
 
 	"github.com/hajimehoshi/ebiten/v2"
 )
@@ -15,18 +14,15 @@ const (
 
 // Board represents the game board.
 type Board struct {
-	size        int
-	grid        [][]color.Color
-	currentTurn color.Color
+	size int
+	grid [][]color.Color
 }
 
 // NewBoard generates a new Board with giving a size.
-func NewBoard(size int) *Board {
-	rng := rand.New(rand.NewSource(time.Now().UnixNano()))
+func NewBoard(size int, rng *rand.Rand) *Board {
 	board := &Board{
-		size:        size,
-		grid:        generateRandomGrid(size, rng),
-		currentTurn: generateRandomColor(rng),
+		size: size,
+		grid: generateRandomGrid(size, rng),
 	}
 	return board
 }
