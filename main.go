@@ -6,6 +6,7 @@ import (
 	"math/rand"
 	"time"
 
+	"github.com/guilledipa/7colors/sevencolors"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
@@ -28,7 +29,7 @@ type Game struct {
 func NewGame(rng *rand.Rand) *Game {
 	game := &Game{
 		Grid:        generateRandomGrid(rng),
-		CurrentTurn: sevencolors.generateRandomColor(rng),
+		CurrentTurn: sevencolors.GenerateRandomColor(rng),
 	}
 	return game
 }
@@ -38,7 +39,7 @@ func generateRandomGrid(rng *rand.Rand) [][]color.Color {
 	for i := 0; i < gridSize; i++ {
 		grid[i] = make([]color.Color, gridSize)
 		for j := 0; j < gridSize; j++ {
-			grid[i][j] = sevencolors.generateRandomColor(rng)
+			grid[i][j] = sevencolors.GenerateRandomColor(rng)
 		}
 	}
 	return grid

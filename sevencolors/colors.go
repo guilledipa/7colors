@@ -27,7 +27,8 @@ func tileBackgroundColor(value int) color.Color {
 	panic("not reach")
 }
 
-func generateRandomColor(rng *rand.Rand) color.Color {
+// GenerateRandomColor returns one of the 7 colors randomnly
+func GenerateRandomColor(rng *rand.Rand) color.Color {
 	v := rng.Intn(7)
 	return tileBackgroundColor(v)
 }

@@ -1,8 +1,11 @@
-module go-7colors
+module github.com/guilledipa/7colors
 
 go 1.21.0
 
-require github.com/hajimehoshi/ebiten/v2 v2.5.7
+require (
+	github.com/guilledipa/7colors/sevencolors v0.0.0-20230826062344-6bef5ac91607
+	github.com/hajimehoshi/ebiten/v2 v2.5.7
+)
 
 require (
 	github.com/ebitengine/purego v0.4.0 // indirect
