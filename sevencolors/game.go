@@ -1,6 +1,7 @@
 package sevencolors
 
 import (
+	"fmt"
 	"image/color"
 	"math/rand"
 	"time"
@@ -15,12 +16,20 @@ const (
 	boardSize    = 8
 )
 
+// score is used to track each player scores.
+type score struct {
+	Player1 int
+	Player2 int
+}
+
 // Game represents a game state.
 type Game struct {
-	board       *Board
-	boardImage  *ebiten.Image
-	rng         *rand.Rand
-	currentTurn color.Color
+	board         *Board
+	boardImage    *ebiten.Image
+	rng           *rand.Rand
+	CurrentPlayer int
+	currentTurn   color.Color
+	score         *score
 }
 
 // NewGame generates a new Game object.
@@ -30,6 +39,7 @@ func NewGame() *Game {
 		board:       NewBoard(boardSize, rng),
 		currentTurn: generateRandomColor(rng),
 		rng:         rng,
+		score:       &score{},
 	}
 	return g
 }
@@ -78,6 +88,12 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	y := (sh - bh) / 2
 	op.GeoM.Translate(float64(x), float64(y))
 	screen.DrawImage(g.boardImage, op)
+
+	// Draw the scores
+	player1Score := fmt.Sprintf("Player 1 Score: %d", g.score.Player1)
+	player2Score := fmt.Sprintf("Player 2 Score: %d", g.score.Player2)
+	drawTextWithShadow(screen, player1Score, 10, 20, 2, color.Black)
+	drawTextWithShadow(screen, player2Score, 10, 45, 2, color.Black)
 }
 
 func (g *Game) conquerTiles(gridX, gridY int, targetColor color.Color) {
