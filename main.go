@@ -9,7 +9,7 @@ import (
 
 func main() {
 	game := sevencolors.NewGame()
-	ebiten.SetWindowSize(sevencolors.ScreenWidth, sevencolors.ScreenHeight)
+	ebiten.SetWindowSize(sevencolors.ScreenWidth*2, sevencolors.ScreenHeight*2)
 	ebiten.SetWindowTitle("7 Colors Clone")
 	if err := ebiten.RunGame(game); err != nil {
 		log.Fatal(err)
