@@ -1,11 +1,13 @@
 package sevencolors
 
 import (
+	"fmt"
 	"image/color"
 	"math/rand"
 	"time"
 
 	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/ebitenutil"
 	"github.com/hajimehoshi/ebiten/v2/inpututil"
 )
 
@@ -33,16 +35,15 @@ type Game struct {
 	boardImage    *ebiten.Image
 	rng           *rand.Rand
 	CurrentPlayer int
-	currentTurn   color.Color
+	selectedColor color.Color
 }
 
 // NewGame generates a new Game object.
 func NewGame() *Game {
 	rng := rand.New(rand.NewSource(time.Now().UnixNano()))
 	g := &Game{
-		board:       NewBoard(boardSize, rng),
-		currentTurn: generateRandomColor(rng),
-		rng:         rng,
+		board: NewBoard(boardSize, rng),
+		rng:   rng,
 	}
 	return g
 }
@@ -54,10 +55,11 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (screenWidth, screenHeigh
 
 // Update updates the current game state.
 func (g *Game) Update() error {
-	for _, key := range keys {
+	for i, key := range keys {
 		if !inpututil.IsKeyJustPressed(key) {
 			continue
 		}
+		g.selectedColor = tileBackgroundColor(i)
 		// conquer colors
 	}
 	// Check for winning condition here and handle game over if necessary
@@ -78,4 +80,7 @@ func (g *Game) Draw(screen *ebiten.Image) {
 	y := (sh - bh) / 2
 	op.GeoM.Translate(float64(x), float64(y))
 	screen.DrawImage(g.boardImage, op)
+
+	// Print selected color
+	ebitenutil.DebugPrint(screen, fmt.Sprintln(g.selectedColor))
 }
