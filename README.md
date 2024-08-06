@@ -1,7 +1,7 @@
 # 7 Colores
 
 Este es un ejemplo de cómo se podría implementar un juego similar a 7 Colors en
-Go. Este ejemplo es solo una posible aproximación y puede haber muchas otras
+Godot. Este ejemplo es solo una posible aproximación y puede haber muchas otras
 formas de abordar el problema.
 
 Primero, debemos definir la estructura del juego y cómo se representarán y
@@ -17,13 +17,8 @@ mientras el juego esté en curso. Dentro del bucle, podemos hacer cosas como:
 
 * Pedir al usuario que seleccione un bloque de color para eliminar.
 *   Eliminar el bloque seleccionado y hacer que los bloques restantes caigan
-    hacia abajo para llenar el espacio vacío.
+	hacia abajo para llenar el espacio vacío.
 *   Verificar si se han completado filas o columnas de un solo color y
-    eliminarlas.
+	eliminarlas.
 *   Actualizar la puntuación del usuario y comprobar si ha alcanzado el
-    objetivo del nivel.
-
-Para crear la interfaz gráfica del juego, podriamos utilizar Ebiten para crear
-elementos gráficos como ventanas, botones y gráficos y controlar cómo se
-muestran en la pantalla. Por ejemplo, podemos crear una ventana que muestra el
-tablero del juego y los botones para seleccionar los bloques de color.
+	objetivo del nivel.
