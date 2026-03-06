@@ -5,16 +5,17 @@ import (
 )
 
 func TestCapture(t *testing.T) {
+	// Armamos una partida para testear
 	g := NewGame()
 
-	// Test basic capture logic - ensure players own at least one tile
+	// Chequeamos que la captura inicial ande: los jugadores tienen que tener al menos una ficha cada uno
 	if len(g.playerOwned[0]) == 0 || len(g.playerOwned[1]) == 0 {
-		t.Errorf("Initial capture failed: Player 1 owned %d tiles, Player 2 owned %d tiles",
+		t.Errorf("La captura inicial falló: El Jugador 1 tiene %d fichas, el Jugador 2 tiene %d",
 			len(g.playerOwned[0]), len(g.playerOwned[1]))
 	}
 
-	// Ensure player colors are different
+	// Nos aseguramos que no arranquen con el mismo color
 	if g.playerColors[0] == g.playerColors[1] {
-		t.Errorf("Initial colors should be different, but both are %d", g.playerColors[0])
+		t.Errorf("Los colores de entrada deberían ser distintos, pero los dos tienen el %d", g.playerColors[0])
 	}
 }

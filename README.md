@@ -1,38 +1,38 @@
-# 7 Colors - Ebitengine Clone
+# 7 Colors - Clon de Ebitengine
 
-A faithful recreation of the 1991 DOS puzzle game **7 Colors** (originally by Gamos/Infogrames), implemented in Go using the **Ebitengine** framework.
+Una recreación fiel del juego de puzles de DOS de 1991 **7 Colors** (originalmente de Gamos/Infogrames), implementado en Go usando el framework **Ebitengine**.
 
-## Game Rules
+## Reglas del Juego
 
-7 Colors is a turn-based board game played on a grid of diamonds of 7 different colors.
+7 Colors es un juego de tablero por turnos que se juega en una cuadrícula de diamantes de 7 colores diferentes.
 
-- **Objective:** Control more than 50% of the board tiles.
-- **Starting Points:** Player 1 starts at the bottom-left corner, and Player 2 starts at the top-right corner.
-- **How to Play:** On your turn, choose a color from the sidebar. All tiles you currently own will change to that color, and you will capture all adjacent tiles that share the new color.
-- **Restrictions:** You cannot choose the color currently owned by yourself or your opponent.
+- **Objetivo:** Controlar más del 50% de las fichas del tablero.
+- **Puntos de Inicio:** El Jugador 1 arranca en la esquina inferior izquierda y el Jugador 2 arranca en la esquina superior derecha.
+- **Cómo Jugar:** En tu turno, elegí un color de la barra lateral. Todas las fichas que ya tenés van a cambiar a ese color y vas a capturar todas las fichas de al lado que tengan el mismo color.
+- **Restricciones:** No podés elegir el color que ya tenés ni el que tiene tu oponente.
 
-## Features
+## Características
 
-- **DOS Aesthetic:** Classic EGA-like color palette and diamond-shaped grid.
-- **Score Tracking:** Real-time percentage of the board controlled by each player.
-- **Responsive Controls:** Select colors using mouse clicks on the sidebar.
-- **Game End:** Automatic detection of the winner and a simple restart mechanism.
+- **Estética DOS:** Paleta de colores clásica tipo EGA y cuadrícula de diamantes.
+- **Seguimiento de Puntaje:** Porcentaje del tablero controlado por cada jugador en tiempo real.
+- **Controles Piolas:** Seleccioná los colores haciendo clic con el mouse en la barra lateral.
+- **Fin del Juego:** Detección automática del ganador y un mecanismo simple para reiniciar.
 
-## How to Run
+## Cómo Ejecutarlo
 
-Ensure you have [Go](https://go.dev/) installed on your system.
+Asegurate de tener [Go](https://go.dev/) instalado en tu sistema.
 
-1. Clone the repository.
-2. Run the game:
+1. Cloná el repositorio.
+2. Corré el juego:
    ```bash
    go run .
    ```
 
-## Controls
+## Controles
 
-- **Mouse Left Click:** Select a color from the left sidebar.
-- **Restart:** Click anywhere after the game ends to start a new match.
+- **Clic Izquierdo del Mouse:** Elegí un color de la barra lateral izquierda.
+- **Reiniciar:** Hacé clic en cualquier lado después de que termine la partida para empezar de nuevo.
 
 ## Framework
 
-This game is built with [Ebitengine](https://ebitengine.org/), an open-source game engine for Go.
+Este juego está hecho con [Ebitengine](https://ebitengine.org/), un motor de juegos de código abierto para Go.
