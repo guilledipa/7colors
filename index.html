@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>7 COLORS - Clon de Ebitengine</title>
+    <script src="wasm_exec.js"></script>
+    <script>
+        if (!WebAssembly.instantiateStreaming) { // polyfill
+            WebAssembly.instantiateStreaming = async (resp, importObject) => {
+                const source = await (await resp).arrayBuffer();
+                return await WebAssembly.instantiate(source, importObject);
+            };
+        }
+
+        const go = new Go();
+        WebAssembly.instantiateStreaming(fetch("7colors.wasm"), go.importObject).then((result) => {
+            go.run(result.instance);
+        }).catch((err) => {
+            console.error(err);
+        });
+    </script>
+    <style>
+        body {
+            background-color: #000;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        canvas {
+            image-rendering: pixelated;
+        }
+    </style>
+</head>
+<body>
+</body>
+</html>
