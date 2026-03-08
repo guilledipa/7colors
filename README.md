@@ -20,6 +20,8 @@ Una recreación fiel del juego de puzles de DOS de 1991 **7 Colors** (originalme
 
 ## Cómo Ejecutarlo
 
+### En tu PC (Desktop)
+
 Asegurate de tener [Go](https://go.dev/) instalado en tu sistema.
 
 1. Cloná el repositorio.
@@ -27,6 +29,20 @@ Asegurate de tener [Go](https://go.dev/) instalado en tu sistema.
    ```bash
    go run .
    ```
+
+### En el Navegador (Web/WASM)
+
+Podés compilar el juego a WebAssembly para jugarlo desde el navegador.
+
+1. Compilá el WASM usando el script provisto:
+   ```bash
+   ./build_wasm.sh
+   ```
+2. Serví los archivos (`index.html`, `wasm_exec.js` y `7colors.wasm`) con un servidor web. Por ejemplo:
+   ```bash
+   npx serve .
+   ```
+3. Abrí `http://localhost:3000` en tu navegador.
 
 ## Controles
 

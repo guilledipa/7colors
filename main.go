@@ -74,7 +74,7 @@ func init() {
 
 func getFontSource() *text.GoTextFaceSource {
 	if fontSource == nil {
-		s, err := text.NewGoTextFaceSourceFromReader(bytes.NewReader(goregular.TTF))
+		s, err := text.NewGoTextFaceSource(bytes.NewReader(goregular.TTF))
 		if err != nil {
 			log.Fatal(err)
 		}
