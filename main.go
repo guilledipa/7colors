@@ -39,9 +39,9 @@ var (
 )
 
 func init() {
-	// Armamos el sprite del diamante
-	w := tileSize * 2
-	h := tileSize
+	// Armamos el sprite del diamante con un pixel extra para evitar recortes
+	w := tileSize*2 + 1
+	h := tileSize + 1
 	diamondImg = ebiten.NewImage(w, h)
 
 	path := vector.Path{}
@@ -94,6 +94,7 @@ type Game struct {
 	turn         int
 	gameOver     bool
 	winner       int
+	drawOp       ebiten.DrawImageOptions // Reutilizada para performance
 }
 
 func NewGame() *Game {
@@ -292,14 +293,15 @@ func (g *Game) Draw(screen *ebiten.Image) {
 			cx := offsetX + float32(x-y)*float32(tileSize)
 			cy := offsetY + float32(x+y)*float32(tileSize)/2 - float32(boardSize)*float32(tileSize)/4
 
-			// Dibujamos el diamante con el sprite que ya armamos
-			drawOp := &ebiten.DrawImageOptions{}
-			drawOp.GeoM.Translate(float64(cx-float32(tileSize)), float64(cy-float32(tileSize/2)))
+			// Dibujamos el diamante con el sprite pre-renderizado
+			g.drawOp.GeoM.Reset()
+			g.drawOp.GeoM.Translate(float64(cx-float32(tileSize)), float64(cy-float32(tileSize/2)))
 
 			clr := palette[g.board[y][x]]
-			drawOp.ColorScale.Scale(float32(clr.R)/255, float32(clr.G)/255, float32(clr.B)/255, float32(clr.A)/255)
+			g.drawOp.ColorScale.Reset()
+			g.drawOp.ColorScale.Scale(float32(clr.R)/255, float32(clr.G)/255, float32(clr.B)/255, float32(clr.A)/255)
 
-			screen.DrawImage(diamondImg, drawOp)
+			screen.DrawImage(diamondImg, &g.drawOp)
 		}
 	}
 }
