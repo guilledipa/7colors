@@ -58,12 +58,13 @@ func initSprites() {
 	diamondImg.DrawTriangles(vertices, indices, emptyImg, &ebiten.DrawTrianglesOptions{})
 
 	// Función helper para crear biseles blancos opacos
-	createBevel := func(p1, p2, p3 [2]float32) *ebiten.Image {
+	createBevel := func(p1, p2, p3, p4 [2]float32) *ebiten.Image {
 		img := ebiten.NewImage(w, h)
 		p := vector.Path{}
 		p.MoveTo(p1[0], p1[1])
 		p.LineTo(p2[0], p2[1])
 		p.LineTo(p3[0], p3[1])
+		p.LineTo(p4[0], p4[1])
 		p.Close()
 		
 		v, ind := p.AppendVerticesAndIndicesForFilling(nil, nil)
@@ -74,16 +75,24 @@ func initSprites() {
 		return img
 	}
 
-	cTop := [2]float32{float32(tileSize), 0}
-	cRight := [2]float32{float32(tileSize * 2), float32(tileSize / 2)}
-	cBottom := [2]float32{float32(tileSize), float32(tileSize)}
-	cLeft := [2]float32{0, float32(tileSize / 2)}
-	cCenter := [2]float32{float32(tileSize), float32(tileSize / 2)}
+	oTop := [2]float32{float32(tileSize), 0}
+	oRight := [2]float32{float32(tileSize * 2), float32(tileSize / 2)}
+	oBottom := [2]float32{float32(tileSize), float32(tileSize)}
+	oLeft := [2]float32{0, float32(tileSize / 2)}
 
-	bevelTL = createBevel(cTop, cCenter, cLeft)
-	bevelTR = createBevel(cTop, cRight, cCenter)
-	bevelBL = createBevel(cLeft, cCenter, cBottom)
-	bevelBR = createBevel(cCenter, cRight, cBottom)
+	scale := float32(0.8) // 20% border thickness
+	cx := float32(tileSize)
+	cy := float32(tileSize / 2)
+
+	iTop := [2]float32{cx, cy + (0 - cy)*scale}
+	iRight := [2]float32{cx + (float32(tileSize*2) - cx)*scale, cy}
+	iBottom := [2]float32{cx, cy + (float32(tileSize) - cy)*scale}
+	iLeft := [2]float32{cx + (0 - cx)*scale, cy}
+
+	bevelTL = createBevel(oLeft, oTop, iTop, iLeft)
+	bevelTR = createBevel(oTop, oRight, iRight, iTop)
+	bevelBR = createBevel(oRight, oBottom, iBottom, iRight)
+	bevelBL = createBevel(oBottom, oLeft, iLeft, iBottom)
 }
 
 func getFontSource() *text.GoTextFaceSource {
