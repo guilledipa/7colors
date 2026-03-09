@@ -121,6 +121,7 @@ type Game struct {
 	turn         int
 	gameOver     bool
 	winner       int
+	drawOp       ebiten.DrawImageOptions // Reutilizada para performance
 }
 
 func NewGame() *Game {
