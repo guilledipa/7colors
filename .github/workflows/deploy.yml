@@ -25,7 +25,7 @@ jobs:
           GOOS=js GOARCH=wasm go build -o 7colors.wasm .
           
           echo "Copying wasm_exec.js..."
-          cp "$(go env GOROOT)/misc/wasm/wasm_exec.js" .
+          go run github.com/hajimehoshi/ebiten/v2/cmd/wasm_exec@latest > wasm_exec.js
 
       - name: Prepare HTML5 ZIP package
         run: |
