@@ -3,7 +3,7 @@ name: Build and Publish to itch.io
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch: # Allows you to manually trigger the workflow from the GitHub UI
 
 jobs:
