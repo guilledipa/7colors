@@ -1,2 +1,13 @@
-# Godot 4+ specific ignores
-.godot/
+# OS
+.DS_Store
+
+# Go
+/7colors
+/7colors_mac
+/*.wasm
+/wasm_exec.js
+
+# Build artifacts
+/build/
+/butler
+/butler.zip
